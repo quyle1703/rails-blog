@@ -1,0 +1,56 @@
+    <!-- Users widget -->
+    <div class="row">
+     <div class="col-md-12">
+      <div class="panel">
+       <div class="panel-heading text-primary">
+        <h3 class="panel-title"><i class="fa fa-user"></i> User Management
+         <span class="pull-right">
+          <div class="btn-group code">
+           <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Classes used"><i class="fa fa-code"></i></a>
+           <ul class="dropdown-menu pull-right list-group" role="menu">
+            <li class="list-group-item"><code>.table-condensed</code></li>
+            <li class="list-group-item"><code>.table-hover</code></li>
+          </ul>
+        </div>
+        <a  href="#" class="panel-minimize"><i class="fa fa-chevron-up"></i></a>
+        <a  href="#"  class="panel-close"><i class="fa fa-times"></i></a>
+      </span>
+    </h3>
+  </div>
+  <div class="panel-body">
+    <%= link_to 'Create User', new_admin_user_path, class: 'btn btn-success', style: 'display: flex;  align-items: center; justify-content: center; margin-left: 40%; margin-right: 40%;' %>
+    <table class="table users-table table-condensed table-hover" >
+    <table class="table users-table table-condensed table-hover" >
+     <thead>
+      <tr>
+       <th class="visible-lg">#</th>
+       <th class="visible-lg">Email</th>
+       <th class="visible-lg">Username</th>
+       <th class="visible-lg">Created at</th>
+       <th class="visible-lg">Updated at</th>
+       <th>&nbsp;</th>
+     </tr>
+   </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+      <td class="visible-lg"><%= user.id %></td>
+      <td class="visible-lg"><%= user.email %></td>
+      <td class="visible-lg"><%= user.username %></td>
+      <td class="visible-lg"><%= user.created_at %></td>
+      <td class="visible-lg"><%= user.updated_at %></td>
+      <td>
+        <%= link_to 'Edit', edit_admin_user_path(user), class: 'btn btn-info' %>
+        <%= link_to 'Delete', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+</div>
+<div style="display: flex;  align-items: center; justify-content: center; margin-left: 40%; margin-right: 40%;">
+  <%= will_paginate @clients, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+</div>
+</div>
+</div>
+</div>  <!-- / Users widget-->

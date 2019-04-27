@@ -1,0 +1,27 @@
+<!-- .left-sidebar -->
+<div class="left-sidebar">
+  <div class="sidebar-holder">
+    <ul class="nav  nav-list">
+
+      <!-- sidebar to mini Sidebar toggle -->
+      <li class="nav-toggle">
+        <button class="btn  btn-nav-toggle text-primary"><i class="fa fa-angle-double-left toggle-left"></i> </button>
+      </li>
+      <li>
+        <%= link_to admin_blogs_path do %>
+          <i class="fa fa-table"></i><span class="hidden-minibar">Blog Management </span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to admin_comments_path do %>
+          <i class="fa fa-table"></i><span class="hidden-minibar">Comment Management </span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to admin_users_path do %>
+          <i class="fa fa-table"></i><span class="hidden-minibar">User Management </span>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div> <!-- /.left-sidebar -->

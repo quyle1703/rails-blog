@@ -1,0 +1,20 @@
+<div id = "comment-<%= comment.id %>">
+  <%= image_tag 'quyle.jpg' %>
+  <div class="author-details">
+    <strong><%= comment.user.username %></strong><i> at </i><%= comment.created_at.strftime("%I:%M %p") %>
+    <ul class="list-inline pull-left">
+      <li><i class="fa fa-facebook-square"></i></li>
+      <li><i class="fa fa-twitter-square"></i></li>
+    </ul>
+    <ul class="list-inline pull-right" >
+      <li>
+        <% if current_user && current_user == comment.user || current_user.try(:admin?) %>
+        <%= link_to "Delete", blog_comment_path(@blog, comment), remote: true, method: :delete,
+        class: "btn btn-danger" %>
+        <% end %>
+      </li>
+    </ul>
+    <p class="author-description"><%= comment.content %></p>
+  </div>
+</div>
+<br>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Admin Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <!-- Loading Bootstrap -->
+  <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track': 'reload' %> 
+  <%= javascript_include_tag 'admin', 'data-turbolinks-track': 'reload' %>
+
+  <%= favicon_link_tag 'icons.png', rel: 'shorcut icon' %>
+
+</head>
+<body>
+<div class="site-holder">
+<!-- this is a dummy text -->
+    <%= render 'layouts/navbar_admin' %>
+
+    <!-- .box-holder -->
+    <div class="box-holder">
+    <%= render 'layouts/left_side_bar' %>
+    <%= render 'layouts/alerts' %>
+      <!-- .content -->
+      <div class="content">
+
+
+          <div class="row">
+           <div class="col-mod-12">
+            <ul class="breadcrumb">
+              <li><a href="#">Dashboard</a></li>
+              <li class="active">Blog</li>
+           </ul>
+           
+           <div class="form-group hiddn-minibar pull-right">
+            <input type="text" class="form-control form-cascade-control nav-input-search" size="20" placeholder="Search through site" />
+
+            <span class="input-icon fui-search"></span>
+          </div>
+
+          <h3 class="page-header"> Blog <i class="fa fa-info-circle animated bounceInDown show-info"></i> </h3>
+
+          <blockquote class="page-information hidden">
+           <p>
+            More styles of basic tables are available to represent static information.
+          </p>
+          </blockquote>
+      </div>
+      </div>
+
+    <%= yield %>
+
+
+      </div>
+
+</div> <!-- /.content -->
+
+<%= render 'layouts/right_side_bar' %>
+
+</div> <!-- /.box-holder -->
+</div><!-- /.site-holder -->
+
+
+
+
+</body>
+</html>
+
+
+
+

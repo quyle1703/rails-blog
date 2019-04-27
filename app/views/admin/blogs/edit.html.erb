@@ -1,0 +1,69 @@
+<!-- input masks -->
+<div class="row">
+  <div class="col-md-12">
+  <div class="panel panel-cascade">
+    <div class="panel-heading">
+    <h3 class="panel-title">
+      <i class="fa fa-pencil-square"></i> Blog Info
+      <span class="pull-right">
+        <div class="btn-group code">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Classes used"><i class="fa fa-code"></i></a>
+          <ul class="dropdown-menu pull-right list-group" role="menu">
+          <li class="list-group-item"><code>.form-horizontal</code></li>
+          <li class="list-group-item"><code>.form-group</code></li>
+          <li class="list-group-item"><code>.help-block</code></li>
+        </ul>
+      </div>
+      <a href="#" class="panel-minimize"><i class="fa fa-chevron-up"></i></a>
+      <a href="#" class="panel-close"><i class="fa fa-times"></i></a>
+    </span>
+  </h3>
+</div>
+<%= form_for(@blog, url: admin_blog_path(@blog), local: true, multipart: true) do |form| %>
+<div class="panel-body">
+
+    <% if @blog.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+        <ul>
+          <% @blog.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= form.label :image %>
+      <div class="col-sm-6">
+        <%= form.file_field :image %>
+      </div>
+    </div>         
+    <div class="form-group">
+        <%= form.label :title %>
+      <div class="col-sm-6">
+        <%= form.text_field :title %>
+      </div>
+    </div>              
+    <div class="form-group">
+      <%= form.label :content %>
+      <div class="col-sm-6">
+      <%= form.cktext_area :content %>
+      </div>
+    </div>
+
+
+</div> 
+
+<div class="panel-footer">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <%= form.submit 'Submit', class: 'btn btn-success' %>
+      <%= link_to 'Back', admin_blogs_path, class: 'btn btn-danger' %>
+
+    </div>
+  </div>
+</div>
+<% end %>
+
+

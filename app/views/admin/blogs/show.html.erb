@@ -1,0 +1,15 @@
+<p>
+  <strong>Title:</strong>
+  <%= @blog.title %>
+</p>
+
+<p>
+  <%= image_tag @blog.image.url(:thumb) %>
+<p>
+  <strong>Content:</strong>
+  <%= raw @blog.content %>
+</p>
+
+<%= link_to like_text, likes_update_path(blog: @blog), id: "like_link", remote: true %>
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path %>

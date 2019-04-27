@@ -1,0 +1,56 @@
+    <!-- Users widget -->
+    <div class="row">
+     <div class="col-md-12">
+      <div class="panel">
+       <div class="panel-heading text-primary">
+        <h3 class="panel-title"><i class="fa fa-user"></i> Comment Management
+         <span class="pull-right">
+          <div class="btn-group code">
+           <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Classes used"><i class="fa fa-code"></i></a>
+           <ul class="dropdown-menu pull-right list-group" role="menu">
+            <li class="list-group-item"><code>.table-condensed</code></li>
+            <li class="list-group-item"><code>.table-hover</code></li>
+          </ul>
+        </div>
+        <a  href="#" class="panel-minimize"><i class="fa fa-chevron-up"></i></a>
+        <a  href="#"  class="panel-close"><i class="fa fa-times"></i></a>
+      </span>
+    </h3>
+  </div>
+
+  <div class="panel-body">
+    <table class="table users-table table-condensed table-hover" >
+     <thead>
+      <tr>
+       <th class="visible-lg">#</th>
+       <th class="visible-lg">Content</th>
+       <th class="visible-lg">Post by</th>
+       <th class="visible-lg">On Post</th>
+       <th class="visible-lg">Created at</th>
+       <th class="visible-lg">Updated at</th>
+       <th>&nbsp;</th>
+     </tr>
+   </thead>
+  <tbody>
+    <% @comments.each do |comment| %>
+    <tr>
+        <td class="visible-lg"><%= comment.id %></td>
+        <td class="visible-lg"><%= truncate(comment.content) %></td>
+        <td class="visible-lg"><%= comment.user.username %></td>
+        <td class="visible-lg"><%= comment.blog.id %></td>
+        <td class="visible-lg"><%= comment.created_at %></td>
+        <td class="visible-lg"><%= comment.updated_at %></td>
+        <td>
+          <%= link_to 'Delete', admin_comment_path(comment), method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<div style="display: flex;  align-items: center; justify-content: center; margin-left: 40%; margin-right: 40%;">
+  <%= will_paginate @clients, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+</div>
+</div>
+</div>
+</div>  <!-- / Users widget-->
